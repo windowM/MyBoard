@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board List</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <h1>Board List</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/#}">Create New Board</a>
+        <!-- Add more navigation links if needed -->
+    </nav>
+</header>
+
+<main>
+    <section>
+        <h2>All Boards</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>생성일</th>
+                <th>조회수</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="board : ${boards}">
+                <td>No.</td>
+                <td th:text="${board.title}">제목</td>
+                <td th:text="${board.memberEmail}">작성자</td>
+                <td th:text="${board.createdAt}">생성일</td>
+                <td th:text="${board.viewCount}">조회수</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2024 Your Company</p>
+</footer>
+</body>
+</html>
