@@ -1,6 +1,6 @@
 package com.example.myboard.domain.board.entity;
 
-import com.example.myboard.domain.member.entitiy.Member;
+import com.example.myboard.domain.member.entity.Member;
 import com.example.myboard.global.common.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -22,10 +22,10 @@ public class Board extends BaseEntity {
     private File file;
     @ManyToOne
     private Member member;
-    @OneToMany
-    @JoinColumn(name = "boardId")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "board_id")
     private List<BoardImage> boardImages;
-    @OneToMany
-    @JoinColumn(name = "boardId")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "board_id")
     private List<BoardComment> boardComments;
 }
