@@ -25,9 +25,14 @@ public class BoardController {
     }
 
     @GetMapping("/detail/{id}")
-    public String detail(Model model, @PathVariable Long id) {
-        model.addAttribute("board", boardService.getDetail(id));
-        return "board_detail";
+    public String detail(Model model, @PathVariable Long id, RedirectAttributes redirectAttributes) {
+        try {
+            model.addAttribute("board", boardService.getDetail(id));
+            return "board_detail";
+        } catch (BoardNotFoundException e) {
+            MessageDto message = new MessageDto(e.getMessage(), "/list", RequestMethod.GET, null);
+            return showMessageAndRedirect(message, model);
+        }
     }
 
     private String showMessageAndRedirect(MessageDto messageDto, Model model) {
