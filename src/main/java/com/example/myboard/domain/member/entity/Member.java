@@ -1,4 +1,4 @@
-package com.example.myboard.domain.member.entitiy;
+package com.example.myboard.domain.member.entity;
 
 import com.example.myboard.domain.board.entity.Board;
 import com.example.myboard.global.common.BaseEntity;
