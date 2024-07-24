@@ -19,7 +19,6 @@ public class Board extends BaseEntity {
     private String title;
     private String content;
     private Long viewCount;
-    private File file;
     @ManyToOne
     private Member member;
     @OneToMany(cascade = CascadeType.ALL)

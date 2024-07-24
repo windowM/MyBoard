@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Board Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-4" th:text="${board.title}">Board Title</h1>
+
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <p><strong>작성자:</strong> <span th:text="${board.memberEmail}">작성자 이메일</span></p>
+            <p><strong>생성일:</strong> <span th:text="${board.createdAt}">생성일</span></p>
+        </div>
+        <div class="col-md-6 text-right">
+            <p><strong>조회수:</strong> <span th:text="${board.viewCount}">조회수</span></p>
+        </div>
+    </div>
+
+    <div class="mb-4">
+        <p th:text="${board.content}">Board content goes here...</p>
+    </div>
+
+    <div class="mb-4">
+        <h3>댓글</h3>
+        <ul class="list-group">
+            <li class="list-group-item" th:each="comment : ${board.comments}">
+                <p><strong th:text="${comment.commentMemberEmail}">작성자</strong></p>
+                <p th:text="${comment.comment}">댓글 내용</p>
+            </li>
+        </ul>
+    </div>
+
+    <a href="/list" class="btn btn-primary">목록으로 돌아가기</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

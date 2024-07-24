@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Board List</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <script>
+        function goToUrl(url) {
+            window.location.href = url;
+        }
+    </script>
 </head>
 <body>
 <header>
@@ -29,7 +34,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="board : ${boards}">
+            <tr th:each="board : ${boards}" th:onclick="'goToUrl(\'/detail/'+${board.id}+'\')'" style="cursor: pointer;">
                 <td>No.</td>
                 <td th:text="${board.title}">제목</td>
                 <td th:text="${board.memberEmail}">작성자</td>
