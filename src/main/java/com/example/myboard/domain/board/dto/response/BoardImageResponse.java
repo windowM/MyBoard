@@ -6,10 +6,13 @@ public record BoardImageResponse (
         Long id,
         String originalName,
         String saveName,
-        Integer boardId
+        Long boardId
 ) {
 
     public static BoardImageResponse fromEntity(BoardImage boardImage){
+        if(boardImage==null){
+            return null;
+        }
         return new BoardImageResponse(
                 boardImage.getId(),
                 boardImage.getOriginalName(),

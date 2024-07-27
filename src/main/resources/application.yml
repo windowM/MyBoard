@@ -1,4 +1,7 @@
 spring:
+    profiles:
+        active: local
+
     # H2 DB??
     datasource:
         driver-class-name: org.h2.Driver
@@ -17,4 +20,5 @@ spring:
             ddl-auto: create        # DB ??? ?? (none, create, create-drop, update, validate)
         properties:
             show_sql: true
+
 
