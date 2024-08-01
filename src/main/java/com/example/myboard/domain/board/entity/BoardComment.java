@@ -16,5 +16,5 @@ public class BoardComment extends BaseEntity {
     private String ParentMemberEmail;
     private String comment;
     @Column(nullable = false, name = "board_id")
-    private Integer boardId;
+    private Long boardId;
 }

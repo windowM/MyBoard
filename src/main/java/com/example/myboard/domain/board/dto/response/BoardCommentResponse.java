@@ -7,7 +7,7 @@ public record BoardCommentResponse(
         String commentMemberEmail,
         String ParentMemberEmail,
         String comment,
-        Integer boardId
+        Long boardId
 ) {
 
     public static BoardCommentResponse fromEntity(BoardComment boardComment){
